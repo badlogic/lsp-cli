@@ -12,7 +12,7 @@ We need to enhance the lsp-cli build process to generate and export TypeScript d
 To package and export sourcemaps and types for lsp-cli:
 
 - [x] Create library entry point src/lib.ts that exports core classes and types (LanguageClient, ServerManager, Logger, all types from types.ts)
-- [ ] Update tsconfig.json to enable declaration file generation with `"declaration": true` and `"declarationMap": true`
+- [x] Update tsconfig.json to enable declaration file generation with `"declaration": true` and `"declarationMap": true`
 - [ ] Modify build script to use TypeScript compiler (tsc) for generating declaration files alongside esbuild
 - [ ] Update esbuild command to generate sourcemaps with `--sourcemap` flag
 - [ ] Create separate build outputs: dist/cli.js for CLI and dist/lib.js for library usage
