@@ -8,7 +8,7 @@
     },
     "scripts": {
         "start": "tsx src/index.ts",
-        "build": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --banner:js='#!/usr/bin/env node' && chmod +x dist/index.js && cp llms.md dist/",
+        "build": "rm -rf dist && mkdir -p dist && tsc && esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/cli.js --sourcemap --banner:js='#!/usr/bin/env node' && chmod +x dist/cli.js && cp llms.md dist/",
         "typecheck": "tsc --noEmit",
         "lint": "biome check --write . --error-on-warnings",
         "format": "biome format --write .",

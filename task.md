@@ -13,12 +13,16 @@ To package and export sourcemaps and types for lsp-cli:
 
 - [x] Create library entry point src/lib.ts that exports core classes and types (LanguageClient, ServerManager, Logger, all types from types.ts)
 - [x] Update tsconfig.json to enable declaration file generation with `"declaration": true` and `"declarationMap": true`
-- [ ] Modify build script to use TypeScript compiler (tsc) for generating declaration files alongside esbuild
-- [ ] Update esbuild command to generate sourcemaps with `--sourcemap` flag
-- [ ] Create separate build outputs: dist/cli.js for CLI and dist/lib.js for library usage
+- [x] Modify build script to use TypeScript compiler (tsc) for generating declaration files alongside esbuild
+- [x] Update esbuild command to generate sourcemaps with `--sourcemap` flag
+- [x] Create separate build outputs: dist/cli.js for CLI and dist/lib.js for library usage
 - [ ] Update package.json with proper exports field for dual CLI/library usage and types field pointing to dist/lib.d.ts
 - [ ] Add dist/**/*.d.ts and dist/**/*.js.map to files array in package.json to include in published package
 - [ ] Test that types and sourcemaps work correctly when importing the package
 
 ## Notes
-[Implementation notes]
+- Decided to use TypeScript compiler output directly for library files instead of bundling with esbuild
+  - This provides better tree-shaking for consumers
+  - Allows importing individual modules
+  - More idiomatic for library distribution
+- CLI is still bundled for single-file executable distribution
