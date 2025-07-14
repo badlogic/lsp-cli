@@ -1,6 +1,6 @@
 # Package and Export Sourcemaps and Types
 **Status:** InProgress
-**Agent PID:** 6325
+**Agent PID:** 17496
 
 ## Original Todo
 also package and export the sourcemaps and types so other apps can reuse them
@@ -16,9 +16,9 @@ To package and export sourcemaps and types for lsp-cli:
 - [x] Modify build script to use TypeScript compiler (tsc) for generating declaration files alongside esbuild
 - [x] Update esbuild command to generate sourcemaps with `--sourcemap` flag
 - [x] Create separate build outputs: dist/cli.js for CLI and dist/lib.js for library usage
-- [ ] Update package.json with proper exports field for dual CLI/library usage and types field pointing to dist/lib.d.ts
-- [ ] Add dist/**/*.d.ts and dist/**/*.js.map to files array in package.json to include in published package
-- [ ] Test that types and sourcemaps work correctly when importing the package
+- [x] Update package.json with proper exports field for dual CLI/library usage and types field pointing to dist/lib.d.ts
+- [x] Add dist/**/*.d.ts and dist/**/*.js.map to files array in package.json to include in published package
+- [x] Test that types and sourcemaps work correctly when importing the package
 
 ## Notes
 - Decided to use TypeScript compiler output directly for library files instead of bundling with esbuild

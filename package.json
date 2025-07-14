@@ -2,10 +2,30 @@
     "name": "@mariozechner/lsp-cli",
     "version": "0.1.1",
     "description": "CLI tool to extract types from codebases using LSP servers",
-    "main": "dist/index.js",
+    "main": "dist/lib.js",
+    "types": "dist/lib.d.ts",
     "bin": {
-        "lsp-cli": "dist/index.js"
+        "lsp-cli": "dist/cli.js"
     },
+    "exports": {
+        ".": {
+            "types": "./dist/lib.d.ts",
+            "import": "./dist/lib.js",
+            "require": "./dist/lib.js"
+        },
+        "./cli": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/cli.js",
+            "require": "./dist/cli.js"
+        }
+    },
+    "files": [
+        "dist/**/*.js",
+        "dist/**/*.d.ts",
+        "dist/**/*.js.map",
+        "dist/**/*.d.ts.map",
+        "dist/llms.md"
+    ],
     "scripts": {
         "start": "tsx src/index.ts",
         "build": "rm -rf dist && mkdir -p dist && tsc && esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/cli.js --sourcemap --banner:js='#!/usr/bin/env node' && chmod +x dist/cli.js && cp llms.md dist/",
